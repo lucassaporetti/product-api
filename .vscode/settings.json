@@ -1,12 +1,10 @@
 {
     "cSpell.words": [
         "apiuser",
-        "gerenciamento",
         "gorm",
         "labstack",
         "productsdb",
-        "produtos",
+        "swaggo",
         "unmarshaling",
-        "utilizada"
     ]
 }
