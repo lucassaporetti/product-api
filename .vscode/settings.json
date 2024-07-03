@@ -6,6 +6,7 @@
         "labstack",
         "productsdb",
         "produtos",
+        "unmarshaling",
         "utilizada"
     ]
 }

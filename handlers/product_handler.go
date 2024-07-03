@@ -23,7 +23,7 @@ func CreateProduct(c echo.Context) error {
 	return c.JSON(http.StatusCreated, product)
 }
 
-func GetProducts(c echo.Context) error {
+func GetAllProducts(c echo.Context) error {
 	var products []models.Product
 	if err := database.DB.Find(&products).Error; err != nil {
 		return c.JSON(http.StatusInternalServerError, err)
