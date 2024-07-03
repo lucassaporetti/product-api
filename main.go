@@ -2,7 +2,7 @@ package main
 
 import (
 	"product-api/database"
-	"product-api/handlers"
+	"product-api/routes"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -15,11 +15,7 @@ func main() {
 
 	database.Connect()
 
-	e.POST("/create_product", handlers.CreateProduct)
-	e.GET("/get_all_products", handlers.GetProducts)
-	e.GET("/get_product/:id", handlers.GetProduct)
-	e.PUT("/update_product/:id", handlers.UpdateProduct)
-	e.DELETE("/delete_product/:id", handlers.DeleteProduct)
+	routes.SetupProductRoutes(e)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }
