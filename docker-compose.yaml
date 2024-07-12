@@ -1,19 +1,24 @@
-version: '3'
-
+version: "3.3"
 services:
-  mysql:
+  db:
     image: mysql:8.0
-    container_name: mysql
+    volumes:
+      - /var/lib/mysql
+      - ./docker-entrypoint-initdb.d
     restart: always
+    ports:
+      - 3306:3306
     environment:
       MYSQL_DATABASE: products_db
       MYSQL_USER: apiuser
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: admin
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql-data:/var/lib/mysql
-
-volumes:
-  mysql-data:
+    networks:
+      - db-test
+networks:
+  db-test:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "111.111.10.0/24"

@@ -6,5 +6,6 @@
         "productsdb",
         "swaggo",
         "unmarshaling",
+        "stretchr"
     ]
 }
